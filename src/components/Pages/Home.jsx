@@ -1,51 +1,78 @@
 import {useState, useEffect} from 'react'
-import {fetchTrendingMovies,fallbackMoviePoster, image185} from '../../moviedb';
+import {fetchTrendingMovies} from '../../moviedb';
 import { StarIcon } from '@heroicons/react/20/solid';
 
 
 const Movies = () => {
     const [trending, setTrending] = useState([])
     const [searchQuery, setSearchQuery] = useState('');
+    const [sortBy, setSortBy] = useState('title');
+    const [isLoading, setIsLoading] = useState(true);
+
     const baseUrl = "https://image.tmdb.org/t/p/original/"
 
     const getTrending = async () => {
         const data = await fetchTrendingMovies();
         if(data && data.results) setTrending(data.results)
+        setIsLoading(false); 
     }
 
     useEffect(() =>{
         getTrending();
     }, []);
 
+
+    const handleSortChange = (event) => {
+      setSortBy(event.target.value);
+    };
+
     function classNames(...classes) {
       return classes.filter(Boolean).join(' ');
     }
-    
-    function SortMovies(trending, sortBy) {
-        switch (sortBy) {
-          case 'title':
-            return [...trending].sort((a, b) => a.title.localeCompare(b.title));
-          case 'vote_average':
-            return [...trending].sort((a, b) => a.rating - b.rating);
-          default:
-            return trending;
+   
+    function SortMovies(movies, sortBy) {
+      switch (sortBy) {
+        case 'popularity':
+          return [...movies].sort((a, b) => b.popularity - a.popularity);
+        case 'vote_average':
+          return [...movies].sort((a, b) => b.vote_average - a.vote_average);
+        default:
+          return movies;
       }
     }
 
     return (
       <div className="flex w-full min-w-0">
-        <div className="w-full p-4 overflow-y-auto">
+        {isLoading ? (
+          <div className='h-full w-full text-center p4'>
+            <span>Loading movies.....</span>
+          </div>
+        ): (
+          <div className="w-full p-4 overflow-y-auto">
           <h2 className="sr-only">Movies</h2>
-          <section className='flex justify-end'>
-            <div className="mb-4 py-7 ">
-              <input
-                type="text"
-                placeholder="Movie title"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
+          <section className='flex justify-between'>
+        <div className="mb-4 py-7 ml-4">
+          <label htmlFor="sort" className="mr-2">Sort by:</label>
+          <select
+            id="sort"
+            className="border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            value={sortBy}
+            onChange={handleSortChange}
+          >
+            <option value="title">Title</option>
+            <option value="vote_average">Vote Average</option>
+          </select>
+        </div>
+
+        <div className="mb-4 py-7 ">
+          <input
+            type="text"
+            placeholder="Movie title"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          />
+        </div>
           </section>
           <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8">
             {SortMovies(
@@ -54,7 +81,7 @@ const Movies = () => {
               )           
             ).map((movie) => (
               <div key={movie.id} className="group relative border-b border-r border-gray-200 p-4 sm:p-6">
-              <div className="h-56 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-72 xl:h-80">
+              <div className="overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-72 xl:h-80">
                   <img
                     src={`${baseUrl}/${movie.poster_path}`}
                     alt={movie.imageAlt}
@@ -90,6 +117,7 @@ const Movies = () => {
             ))}
           </div>
         </div>
+        )}
       </div>
     );
   }

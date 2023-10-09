@@ -87,41 +87,10 @@ export default function Navigation() {
 
       {/* Hero section */}
       <div className="relative bg-secondary ">
-        {/* Decorative image and overlay */}
-        <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-          <img
-            src="/src/assets/movie.jpeg"
-            alt=""
-            className="h-full w-full object-cover object-center"
-          />
-        </div>
         <div aria-hidden="true" className="absolute inset-0 bg-secondary  opacity-50" />
         {/* Navigation */}
         <header className="relative z-10">
           <nav aria-label="Top">
-            {/* Top navigation */}
-            <div className="bg-secondary ">
-              <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-                {/* Currency selector */}
-                <form>
-                  <div>
-                    <label htmlFor="desktop-currency" className="sr-only">
-                      Currency
-                    </label>
-                  </div>
-                </form>
-
-                <div className="flex items-center space-x-6">
-                  <a href="/login" className="text-sm font-medium text-white hover:text-gray-100">
-                    Sign in
-                  </a>
-                  <a href="/register" className="text-sm font-medium text-white hover:text-gray-100">
-                    Create an account
-                  </a>
-                </div>
-              </div>
-            </div>
-
             {/* Secondary navigation */}
             <div className="bg-white bg-opacity-10 backdrop-blur-md backdrop-filter">
               <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -132,8 +101,8 @@ export default function Navigation() {
                       <a href="#">
                         <span className="sr-only">Vidly</span>
                         <img
-                          className="h-8 w-auto"
-                          src="https://suiteguru.com/wp-content/uploads/2023/08/suiteguru-logo-gold-rgb-SM-768x139.png"
+                          className="h-24 w-auto"  
+                          src="/src/assets/images/logo.png"
                           alt=""
                         />
                       </a>
@@ -173,11 +142,11 @@ export default function Navigation() {
 
                     {/* Logo (lg-) */}
                     <a href="/" className="lg:hidden">
-                      <img src="https://suiteguru.com/wp-content/uploads/2023/08/suiteguru-logo-gold-rgb-SM-768x139.png" alt="" className="h-8 w-auto" />
+                      <img src="/src/assets/images/logo.png" alt="" className="h-8 w-auto" />
                     </a>
 
                     <div className="flex flex-1 items-center justify-end">
-                    <a href="/newsuite" className="hidden text-sm font-medium text-white lg:block">
+                    <a href="/" className="hidden text-sm font-medium text-white lg:block">
                     <button type="button" className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold hover:bg-charcoal text-white shadow-sm hover:palegold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
                      + Add review
                       </button>
