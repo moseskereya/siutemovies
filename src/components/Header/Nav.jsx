@@ -11,7 +11,10 @@ import {
 const navigation = {
   pages: [
     { name: 'Home', href: '/' },
-    { name: 'Explore Movies', href: '/movies'}
+    { name: 'Trending', href: '/toprated'},
+    { name: 'Horor', href: '/horor'},
+    { name: 'Upcoming', href: '/upcoming'},
+    { name: 'Documentaries', href: '/docs'},
   ],
 }
 
@@ -20,7 +23,6 @@ export default function Navigation() {
 
   return (
     <div className="bg-white">
-      {/* Mobile menu */}
       <Transition.Root show={mobileMenuOpen} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setMobileMenuOpen}>
           <Transition.Child
@@ -66,19 +68,6 @@ export default function Navigation() {
                     </div>
                   ))}
                 </div>
-
-                <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-                  <div className="flow-root">
-                    <a href="/register" className="-m-2 block p-2 font-medium text-gray-900">
-                      Create an account
-                    </a>
-                  </div>
-                  <div className="flow-root">
-                    <a href="/login" className="-m-2 block p-2 font-medium text-gray-900">
-                      Sign in
-                    </a>
-                  </div>
-                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -99,7 +88,7 @@ export default function Navigation() {
                     {/* Logo (lg+) */}
                     <div className="hidden lg:flex lg:flex-1 lg:items-center">
                       <a href="#">
-                        <span className="sr-only">Vidly</span>
+                        <span className="sr-only">SuiteMovies</span>
                         <img
                           className="h-24 w-auto"  
                           src="/src/assets/images/logo.png"

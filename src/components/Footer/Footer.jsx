@@ -2,16 +2,18 @@
 const footer = () => {
     const footerNavigation = {
         shop: [
-          { name: 'Bags', href: '#' },
-          { name: 'Tees', href: '#' },
-          { name: 'Objects', href: '#' },
-          { name: 'Home Goods', href: '#' },
+          { name: 'Trending Movies', href: '#' },
+          { name: 'Upcoming Movies', href: '#' },
+          { name: 'Top rated movies', href: '#' },
+          { name: 'Romantic Movies', href: '#' },
           { name: 'Accessories', href: '#' },
+          { name: 'Comedy Movies', href: '#' },
+
         ],
         company: [
           { name: 'Who we are', href: '#' },
           { name: 'Sustainability', href: '#' },
-          { name: 'Press', href: '#' },
+          { name: 'Apis', href: '#' },
           { name: 'Careers', href: '#' },
           { name: 'Terms & Conditions', href: '#' },
           { name: 'Privacy', href: '#' },

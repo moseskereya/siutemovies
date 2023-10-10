@@ -5,7 +5,7 @@ const Default = () => {
   return (
     <>
     <Nav/>
-     <Outlet/>
+       <Outlet/>
     <Footer/>
     </>
   )
