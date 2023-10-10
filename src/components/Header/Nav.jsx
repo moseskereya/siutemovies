@@ -11,7 +11,7 @@ import {
 const navigation = {
   pages: [
     { name: 'Home', href: '/' },
-    { name: 'Trending', href: '/toprated'},
+    { name: 'Trending', href: '/movies'},
     { name: 'Horor', href: '/horor'},
     { name: 'Upcoming', href: '/upcoming'},
     { name: 'Documentaries', href: '/docs'},
