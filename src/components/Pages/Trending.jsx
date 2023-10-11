@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { fetchTrendingMovies } from '../../moviedb';
 import { StarIcon } from '@heroicons/react/20/solid';
 import { ClockIcon } from '@heroicons/react/20/solid';
-
+import { Link } from 'react-router-dom';
 
 const Movies = () => {
   const [trending, setTrending] = useState([]);
@@ -10,6 +10,7 @@ const Movies = () => {
   const [sortBy, setSortBy] = useState('title');
   const [isLoading, setIsLoading] = useState(true);
   const baseUrl = "https://image.tmdb.org/t/p/original/";
+  
   const getTrending = async () => {
     const data = await fetchTrendingMovies();
     if (data && data.results) setTrending(data.results);
@@ -19,8 +20,7 @@ const Movies = () => {
   useEffect(() => {
     getTrending();
   }, []);
-  console.log(trending)
-  
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ');
   }
@@ -48,16 +48,7 @@ const Movies = () => {
       <div className="w-full p-4 overflow-y-auto">
       <h2 className="sr-only">Movies</h2>
       <section className='flex justify-between'>
-        <div className="mb-4 py-7">
-          <input
-            type="text"
-            placeholder="Search Movies"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
-          />
-        </div>
-        <div className="mb-4 py-7">
+      <div className="mb-4 py-7">
           <label htmlFor="sortSelect" className="block text-sm font-medium text-gray-700">
             Sort by:
           </label>
@@ -71,8 +62,16 @@ const Movies = () => {
             <option value="title">Title</option>
             <option value="popularity">Popularity</option>
             <option value="vote_average">Vote Average</option>
-
           </select>
+        </div>
+        <div className="mb-4 py-7">
+          <input
+            type="text"
+            placeholder="Search Movies"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          />
         </div>
       </section>
       <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 md:grid-cols-4 md:gap-y-0 lg:gap-x-8">
@@ -90,12 +89,12 @@ const Movies = () => {
                 className="h-full w-full object-cover object-center"
               />
             </div>
-            <div className="pb-4 pt-10 ">
+            <div className="pb-4 pt-10">
               <h3 className="text-sm font-medium text-gray-900">
-                <a href={movie.href}>
+              <Link to={`/movie/${movie.id}`}>
                   <span aria-hidden="true" className="absolute inset-0" />
                   {movie.title}
-                </a>
+            </Link>
               </h3>
               <div className="mt-3 flex justify-between items-center">
                 <p className="sr-only">{movie.vote_average} out of 10</p>
@@ -123,7 +122,6 @@ const Movies = () => {
       </div>
     </div>
    }
-
     </div>
   );
 }

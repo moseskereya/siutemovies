@@ -14,7 +14,6 @@ const navigation = {
     { name: 'Trending', href: '/movies'},
     { name: 'Horor', href: '/horor'},
     { name: 'Upcoming', href: '/upcoming'},
-    { name: 'Documentaries', href: '/docs'},
   ],
 }
 
@@ -135,12 +134,6 @@ export default function Navigation() {
                     </a>
 
                     <div className="flex flex-1 items-center justify-end">
-                    <a href="/" className="hidden text-sm font-medium text-white lg:block">
-                    <button type="button" className="rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold hover:bg-charcoal text-white shadow-sm hover:palegold focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                     + Add review
-                      </button>
-                      </a>
-
                       <div className="flex items-center lg:ml-8">
                         {/* Help */}
                         <a href="#" className="p-2 text-white lg:hidden">

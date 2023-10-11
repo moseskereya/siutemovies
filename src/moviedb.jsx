@@ -30,7 +30,7 @@ const apiCall = async (endpoint, params)=>{
         method: 'GET',
         url: endpoint,
         params: params? params: {}
-    };
+    }; 
 
     try{
         const response = await axios.request(options);
