@@ -47,7 +47,7 @@ const Movies = () => {
       ): 
       <div className="w-full p-4 overflow-y-auto">
       <h2 className="sr-only">Movies</h2>
-      <section className='flex justify-between'>
+      <section className="flex flex-col md:flex-row justify-between md:items-center">
       <div className="mb-4 py-7">
           <label htmlFor="sortSelect" className="block text-sm font-medium text-gray-700">
             Sort by:
