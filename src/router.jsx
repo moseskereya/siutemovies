@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import Home from "./components/Pages/Home";
 import Default from "./components/Pages/Default"
 import Notfound from "./components/Pages/Notfound";
 import Trending from "./components/Pages/Trending"
 import Moviedetails from "./components/Pages/Moviedetails"
+import About from "./components/Pages/Home"
 
 const router = createBrowserRouter([
     {
@@ -12,11 +12,11 @@ const router = createBrowserRouter([
         children:[
             {
                 path: '/',
-                element: <Home/>
+                element:<Trending/>
             },
             {
-                path:'/movies',
-                element:<Trending/>
+                path:'/about',
+                element:<About/>
             },
             {
                 path:'/movie/:id',
