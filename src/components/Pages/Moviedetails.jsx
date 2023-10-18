@@ -9,6 +9,7 @@ export default function Moviedetails() {
   const [movie, setMovie] = useState({});
   const [relatedmovie, setRelatedMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
   useEffect(() => {
         const api_key = "fa1875db1f08a7d5f9887db721a0a94e";
         const movieId = id;

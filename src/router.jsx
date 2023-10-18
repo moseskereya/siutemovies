@@ -3,7 +3,7 @@ import Default from "./components/Pages/Default"
 import Notfound from "./components/Pages/Notfound";
 import Trending from "./components/Pages/Trending"
 import Moviedetails from "./components/Pages/Moviedetails"
-import About from "./components/Pages/Home"
+import Home from "./components/Pages/Home"
 
 const router = createBrowserRouter([
     {
@@ -12,11 +12,11 @@ const router = createBrowserRouter([
         children:[
             {
                 path: '/',
-                element:<Trending/>
+                element:<Home/>
             },
             {
                 path:'/about',
-                element:<About/>
+                element:<Trending/>
             },
             {
                 path:'/movie/:id',
