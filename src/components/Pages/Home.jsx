@@ -136,8 +136,7 @@ export default function Home() {
                         <img
                           src="https://i1.sndcdn.com/artworks-pDG27KyI9AUeyRA6-MRt9Aw-t500x500.jpg"
                           alt=""
-                          className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"
-                        />
+                          className="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg"/>
                         <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10" />
                       </div>
                     </div>
